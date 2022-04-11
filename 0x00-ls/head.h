@@ -6,5 +6,7 @@
 /* Rodrigo Zarate Algecira */
 /* Low Level and Algorithms Program */
 
-#include <stdio>
+#include <stdio.h>
 #include <stdlib.h>
+
+#endif

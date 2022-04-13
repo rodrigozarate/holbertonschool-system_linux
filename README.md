@@ -23,4 +23,4 @@
 Your program will be compiled this way:
 
 ```gcc -Wall -Werror -Wextra -pedantic *.c -o hls```
-
+![board](/hls.png)

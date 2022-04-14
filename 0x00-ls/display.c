@@ -34,7 +34,7 @@ void print_full(struct dirent *read)
 	user = getpwuid(fileStat.st_uid);
 	grp = getgrgid(fileStat.st_gid);
 
-	printf(" %u %s %s %li %s %s\n", fileStat.st_nlink, (*user).pw_name,
+	printf(" %lu %s %s %li %s %s\n", fileStat.st_nlink, (*user).pw_name,
 	(*grp).gr_name, (intmax_t)fileStat.st_size, time, (*read).d_name);
 }
 

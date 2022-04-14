@@ -132,7 +132,7 @@ void flag_overload(struct dirent *read, int *options)
 	{
 		onep = _strcmp(read->d_name, ".");
 		twop = _strcmp(read->d_name, "..");
-		if (options[3] == onep && twop)
+		if (options[3] == 1 && onep && twop)
 			display_line(read->d_name, options);
 		else
 			if (read->d_name[0] != '.')

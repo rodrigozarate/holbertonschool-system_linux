@@ -1,5 +1,5 @@
 /*
-* returner.c: compose the return
+* xreturner.c: compose the return
 * Author: Rodrigo Zárate Algecira
 * Date: April 11, 2022
 */
@@ -7,12 +7,12 @@
 #include "head.h"
 
 /**
-* returner - the one that returns
+* xreturner - the one that returns
 * @file_names: stream nodes
 * @options: self explanatory
 */
 
-void returner(list_t *file_names, int *options)
+void xreturner(list_t *file_names, int *options)
 {
 	list_t *head = file_names;
 	int flag_many = 0;

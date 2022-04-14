@@ -14,6 +14,7 @@
 #include <time.h>
 #include <pwd.h>
 #include <grp.h>
+#include <stdint.h>
 
 /**
 * struct list_s - structure for node list

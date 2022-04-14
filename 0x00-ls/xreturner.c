@@ -55,6 +55,7 @@ void display_with_options(list_t *head, int *options, int flag_many)
 		read = readdir(dir);
 		while (read != NULL)
 		{
+
 			if (options[1] == 1)
 			{
 				print_full(read);
@@ -90,6 +91,7 @@ void read_local(char *head, int *options)
 {
 	DIR *dir;
 	struct dirent *read;
+	int onet, twot;
 
 	dir = opendir(head);
 	if (dir != NULL)
@@ -99,8 +101,13 @@ void read_local(char *head, int *options)
 		{
 			if (options[1] == 1)
 			{
-				print_full(read);
-				options[0] = 1;
+				onet = _strcmp(read->d_name, ".");
+				twot = _strcmp(read->d_name, "..");
+				if (onet && twot)
+				{
+					print_full(read);
+					options[0] = 1;
+				}
 			}
 			else
 			{

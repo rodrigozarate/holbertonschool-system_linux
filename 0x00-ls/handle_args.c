@@ -6,7 +6,7 @@
  * @argv: argument itself
  * @options: options
  * Return: object
- */
+*/
 
 list_t *handle_args(int argc, char const *argv[], int *options)
 {

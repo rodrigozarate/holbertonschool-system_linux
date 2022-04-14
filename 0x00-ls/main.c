@@ -1,5 +1,5 @@
 /*
-* main.c - emulation of ls command
+* main.c: Emulation of ls command
 * Author: Rodrigo Zárate Algecira
 * Date: April 11, 2022
 */
@@ -8,16 +8,22 @@
 
 /**
 * main - my own ls command
+* @argc: counter
+* #argv: arguments
 * Return: exit Success or Failure
 */
 
-int main()
+int main(int argc, char const *argv[])
 {
-	int allfine = 1;
+	list_t *file_names = NULL;
+	list_t *head = NULL;
+	int options[4] = {0, 0, 0, 0};
 
-	if (allfine)
-	{
-		exit(EXIT_SUCCESS);
-	}
-	exit(EXIT_FAILURE);
+	file_names = handle_args(argc, argv, options);
+	head = file_names;
+
+	returner(head, options);
+
+	free_list(head);
+	return (0);
 }

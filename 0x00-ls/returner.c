@@ -1,0 +1,76 @@
+#include "head.h"
+
+/**
+* returner - the one that returns
+* @file_names: stream nodes
+* @options: self explanatory
+*/
+
+void returner(list_t *file_names, int *options)
+{
+	list_t *head = file_names;
+	int flag_many = 0;
+
+	if (head == NULL)
+	{
+		read_local(".", options);
+		return;
+	}
+
+	if (head->next)
+	{
+		flag_many = 1;
+	}
+
+	while (head != NULL)
+	{
+		display_with_options(head, options, flag_many);
+		head = head->next;
+	}
+}
+
+/**
+* display_with_options - self explanatory
+* @head: nodes
+* @options: self explanatory
+* @flag_many: indicate if file_names must be parsed or not
+*/
+void display_with_options(list_t *head, int *options, int flag_many)
+{
+	DIR *dir;
+	struct dirent *read;
+
+	dir = opendir(head->str);
+
+	if (flag_many == 1 && errno == 0)
+		printf("%s:\n", head->str);
+	if (dir != NULL)
+	{
+		read = readdir(dir);
+		while (read != NULL)
+		{
+			if (options[1] == 1)
+			{
+				print_full(read);
+				options[0] = 1;
+			}
+			else
+			{
+				flag_overload(read, options);
+			}
+			read = readdir(dir);
+		}
+		if (head->next != NULL || errno != 0)
+			printf("\n");
+	}
+
+	if (errno != 0)
+	{
+		error_handler(head->str);
+	}
+
+	if (options[0] != 1 && errno == 0)
+		printf("\n");
+
+	closedir(dir);
+}

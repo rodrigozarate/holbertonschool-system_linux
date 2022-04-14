@@ -22,6 +22,8 @@ typedef struct list_s
 	struct list_s *next;
 } list_t;
 
+/* for nodes */
+list_t *add_node(list_t **head, const char *str);
 void free_list(list_t *head);
 
 /* errors */
@@ -38,5 +40,7 @@ void flag_overload(struct dirent *read, int *options);
 
 /* handle strings */
 char *_strncpy(char *dest, char const *src, int n);
+int _strlen(char const *s);
+char *_strdup(const char *str);
 
 #endif

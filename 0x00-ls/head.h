@@ -49,5 +49,6 @@ void flag_overload(struct dirent *read, int *options);
 char *_strncpy(char *dest, char const *src, int n);
 int _strlen(char const *s);
 char *_strdup(const char *str);
+int _strcmp(char const *s1, char *s2);
 
 #endif

@@ -69,3 +69,26 @@ char *_strdup(const char *str)
 	s[i] = '\0';
 	return (s);
 }
+
+/**
+* _strcmp - compare two strings for lenght and equality of each char
+* @s1: origin string
+* @s2: compare string
+* Return: int
+*/
+int _strcmp(char const *s1, char *s2)
+{
+	int j = 0, i = 0;
+
+	while (s1[i] != '\0')
+	{
+		i++;
+	}
+
+	while (s1[j] == s2[j] && j < i)
+	{
+		j++;
+	}
+
+	return (s1[j] - s2[j]);
+}

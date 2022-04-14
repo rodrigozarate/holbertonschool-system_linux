@@ -122,5 +122,20 @@ void read_local(char *head, int *options)
 */
 void flag_overload(struct dirent *read, int *options)
 {
-	display_line(read->d_name, options);
+	int onep, twop;
+
+	if (options[2] == 1)
+	{
+		display_line(read->d_name, options);
+	}
+	else
+	{
+		onep = _strcmp(read->d_name, ".");
+		twop = _strcmp(read->d_name, "..");
+		if (options[3] == onep && twop)
+			display_line(read->d_name, options);
+		else
+			if (read->d_name[0] != '.')
+				display_line(read->d_name, options);
+	}
 }

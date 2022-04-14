@@ -1,3 +1,9 @@
+/*
+* returner.c: compose the return
+* Author: Rodrigo Zárate Algecira
+* Date: April 11, 2022
+*/
+
 #include "head.h"
 
 /**
@@ -66,11 +72,55 @@ void display_with_options(list_t *head, int *options, int flag_many)
 
 	if (errno != 0)
 	{
-		error_handler(head->str);
+		handle_errors(head->str);
 	}
 
 	if (options[0] != 1 && errno == 0)
 		printf("\n");
 
 	closedir(dir);
+}
+
+/**
+* read_local - read dir
+* @head: node
+* @options: self explanatory
+*/
+void read_local(char *head, int *options)
+{
+	DIR *dir;
+	struct dirent *read;
+
+	dir = opendir(head);
+	if (dir != NULL)
+	{
+		read = readdir(dir);
+		while (read != NULL)
+		{
+			if (options[1] == 1)
+			{
+				print_full(read);
+				options[0] = 1;
+			}
+			else
+			{
+				flag_overload(read, options);
+			}
+			read = readdir(dir);
+		}
+	}
+	if (options[0] != 1)
+		printf("\n");
+
+	closedir(dir);
+}
+
+/**
+* flag_overload - just in case
+* @read: the args
+* @options: the options
+*/
+void flag_overload(struct dirent *read, int *options)
+{
+	display_line(read->d_name, options);
 }

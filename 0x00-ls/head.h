@@ -9,6 +9,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <dirent.h>
+#include <errno.h>
+#include <sys/stat.h>
+#include <time.h>
+#include <pwd.h>
+#include <grp.h>
 
 typedef struct list_s
 {
@@ -19,8 +24,19 @@ typedef struct list_s
 
 void free_list(list_t *head);
 
+/* errors */
+void handle_errors(char *directory);
+
 /* functions */
 void returner(list_t *head, int *options);
+void display_with_options(list_t *head, int *options, int flag_many);
 list_t *handle_args(int argc, char const *argv[], int *options);
+void read_local(char *head, int *options);
+void print_full(struct dirent *read);
+void display_line(char *read, int *options);
+void flag_overload(struct dirent *read, int *options);
+
+/* handle strings */
+char *_strncpy(char *dest, char const *src, int n);
 
 #endif

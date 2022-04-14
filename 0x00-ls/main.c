@@ -9,7 +9,7 @@
 /**
 * main - my own ls command
 * @argc: counter
-* #argv: arguments
+* @argv: arguments
 * Return: exit Success or Failure
 */
 
@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
 	file_names = handle_args(argc, argv, options);
 	head = file_names;
 
-	returner(head, options);
+	xreturner(head, options);
 
 	free_list(head);
 	return (0);

@@ -15,6 +15,13 @@
 #include <pwd.h>
 #include <grp.h>
 
+/**
+* struct list_s - structure for node list
+* @str: char
+* @len: unit
+* @next: pointer
+*/
+
 typedef struct list_s
 {
 	char *str;
@@ -30,7 +37,7 @@ void free_list(list_t *head);
 void handle_errors(char *directory);
 
 /* functions */
-void returner(list_t *head, int *options);
+void xreturner(list_t *head, int *options);
 void display_with_options(list_t *head, int *options, int flag_many);
 list_t *handle_args(int argc, char const *argv[], int *options);
 void read_local(char *head, int *options);

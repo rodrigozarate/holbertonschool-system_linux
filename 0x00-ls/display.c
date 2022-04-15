@@ -15,12 +15,9 @@ void print_full(struct dirent *read)
 	struct stat fileStat;
 	struct group *grp;
 	struct passwd *user;
-	struct tm *tm;
-	char time[200];
+	char time[24];
 
-	tm = localtime(&fileStat.st_mtime);
-	strftime(time, sizeof(time), "%b %d %H:%M", tm);
-
+	_strncpy(time, ctime(&fileStat.st_mtime), 24);
 	lstat((*read).d_name, &fileStat);
 
 	printf((S_ISDIR(fileStat.st_mode)) ? "d" : "-");

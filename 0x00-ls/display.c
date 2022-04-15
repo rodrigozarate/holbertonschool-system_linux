@@ -17,6 +17,7 @@ void print_full(struct dirent *read)
 	struct passwd *user;
 	struct tm *tm;
 	char time[200];
+
 	tm = localtime(&fileStat.st_mtime);
 	strftime(time, sizeof(time), "%b %d %H:%M", tm);
 

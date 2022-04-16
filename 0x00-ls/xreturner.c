@@ -10,9 +10,10 @@
 * xreturner - the one that returns
 * @file_names: stream nodes
 * @options: self explanatory
+* @prog_name: main program name char pointer
 */
 
-void xreturner(list_t *file_names, int *options)
+void xreturner(list_t *file_names, int *options, char const *prog_name)
 {
 	list_t *head = file_names;
 	int flag_many = 0;
@@ -30,7 +31,7 @@ void xreturner(list_t *file_names, int *options)
 
 	while (head != NULL)
 	{
-		display_with_options(head, options, flag_many);
+		display_with_options(head, options, flag_many, prog_name);
 		head = head->next;
 	}
 }
@@ -40,8 +41,10 @@ void xreturner(list_t *file_names, int *options)
 * @head: nodes
 * @options: self explanatory
 * @flag_many: indicate if file_names must be parsed or not
+* @prog_name: main program name char pointer
 */
-void display_with_options(list_t *head, int *options, int flag_many)
+void display_with_options(list_t *head, int *options, int flag_many,
+				char const *prog_name)
 {
 	DIR *dir;
 	struct dirent *read;
@@ -73,7 +76,7 @@ void display_with_options(list_t *head, int *options, int flag_many)
 
 	if (errno != 0)
 	{
-		handle_errors(head->str);
+		handle_errors(head->str, prog_name);
 	}
 
 	if (options[0] != 1 && errno == 0)

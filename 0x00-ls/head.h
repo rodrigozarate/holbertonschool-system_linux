@@ -35,11 +35,12 @@ list_t *add_node(list_t **head, const char *str);
 void free_list(list_t *head);
 
 /* errors */
-void handle_errors(char *directory);
+void handle_errors(char *directory, char const *prog_name);
 
 /* functions */
-void xreturner(list_t *head, int *options);
-void display_with_options(list_t *head, int *options, int flag_many);
+void xreturner(list_t *head, int *options, char const *prog_name);
+void display_with_options(list_t *head, int *options, int flag_many,
+				char const *prog_name);
 list_t *handle_args(int argc, char const *argv[], int *options);
 void read_local(char *head, int *options);
 void print_full(struct dirent *read);

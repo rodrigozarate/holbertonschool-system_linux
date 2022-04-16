@@ -17,12 +17,14 @@ int main(int argc, char const *argv[])
 {
 	list_t *file_names = NULL;
 	list_t *head = NULL;
+	char const *prog_name = NULL;
 	int options[4] = {0, 0, 0, 0};
 
+	prog_name = argv[0];
 	file_names = handle_args(argc, argv, options);
 	head = file_names;
 
-	xreturner(head, options);
+	xreturner(head, options, prog_name);
 
 	free_list(head);
 	return (0);

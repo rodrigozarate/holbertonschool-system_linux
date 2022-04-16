@@ -79,7 +79,7 @@ void display_with_options(list_t *head, int *options, int flag_many,
 
 	if (dir != NULL)
 	{
-		read = readdir(dir);
+		/* read = readdir(dir);*/
 		while (read != NULL)
 		{
 			if (options[1] == 1)

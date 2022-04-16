@@ -15,9 +15,5 @@ void handle_errors(char *directory, char const *prog_name)
 	else if (errno == EACCES)
 		fprintf(stderr, "%s: cannot open directory %s: ",
 			prog_name, directory);
-	else if (errno == EINVAL)
-	{
-
-	}
 	perror("");
 }

@@ -48,17 +48,18 @@ void display_with_options(list_t *head, int *options, int flag_many,
 {
 	DIR *dir;
 	struct dirent *read;
+	char *ilname;
 
-	dir = opendir(head->str);
+	ilname = head->str;
+	dir = opendir(ilname);
 
 	if (flag_many == 1 && errno == 0)
-		printf("%s:\n", head->str);
+		printf("%s:\n", ilname);
 	if (dir != NULL)
 	{
 		read = readdir(dir);
 		while (read != NULL)
 		{
-
 			if (options[1] == 1)
 			{
 				print_full(read);

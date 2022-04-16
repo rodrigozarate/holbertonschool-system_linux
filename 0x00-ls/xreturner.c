@@ -52,6 +52,15 @@ void display_with_options(list_t *head, int *options, int flag_many,
 
 	ilname = head->str;
 	dir = opendir(ilname);
+	if (errno == 20)
+	{
+		if (flag_many == 0)
+			printf("%s:\n", ilname);
+		errno = 0;
+	}
+
+	if (errno == 22)
+		errno = 0;
 
 	if (flag_many == 1 && errno == 0)
 		printf("%s:\n", ilname);

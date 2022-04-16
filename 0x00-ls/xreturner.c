@@ -55,15 +55,28 @@ void display_with_options(list_t *head, int *options, int flag_many,
 	if (errno == 20)
 	{
 		if (flag_many == 0)
-			printf("%s:\n", ilname);
+			printf("%s\n", ilname);
 		errno = 0;
 	}
 
 	if (errno == 22)
 		errno = 0;
 
+	if (dir != NULL)
+		read = readdir(dir);
+
 	if (flag_many == 1 && errno == 0)
-		printf("%s:\n", ilname);
+	{
+		if (read->d_type == DT_DIR)
+		{
+			printf("%s:\n", ilname);
+		}
+		else
+		{
+			printf("%s\n", ilname);
+		}
+	}
+
 	if (dir != NULL)
 	{
 		read = readdir(dir);

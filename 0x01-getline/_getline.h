@@ -13,7 +13,7 @@
  * @fd: file descriptor
  * @inbuf: info in buffer
  * @buffer: buffer
- * @next: next structure 
+ * @next: next structure
  */
 typedef struct fdes_s
 {
@@ -27,6 +27,6 @@ char *_getline(const int fd);
 fdes_t getnode(const int fd);
 fdes_t *addnode(fdes_t **head, const int fd);
 char *movenode(char *output, char *origin);
-void freenode(fdes_t *head)
+void freenode(fdes_t *head);
 
 #endif

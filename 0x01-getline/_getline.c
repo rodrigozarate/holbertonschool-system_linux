@@ -16,6 +16,7 @@ char *_getline(const int fd)
 	if (fd == -1 || !list)
 		return (NULL);
 	buffer = list->buffer;
+	line = &list->inbuf;
 	while (1)
 	{
 		if (*line > 0)
@@ -54,7 +55,7 @@ char *_getline(const int fd)
  * @fd: file descriptor
  * Return: NULL on -1 of new node
  */
-fdes_t getnode(const int fd)
+fdes_t *getnode(const int fd)
 {
 	static fdes_t *head;
 	fdes_t *newnode;

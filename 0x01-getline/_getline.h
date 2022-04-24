@@ -24,7 +24,7 @@ typedef struct fdes_s
 } fdes_t;
 
 char *_getline(const int fd);
-fdes_t getnode(const int fd);
+fdes_t *getnode(const int fd);
 fdes_t *addnode(fdes_t **head, const int fd);
 char *movenode(char *output, char *origin);
 void freenode(fdes_t *head);

@@ -34,7 +34,7 @@ char *_getline(const int fd)
 			if (*buffer == '\n')
 			{
 				movenode(buffer, buffer + 1);
-				*line = *line -1;
+				*line = *line - 1;
 				break;
 			}
 		}
@@ -95,7 +95,7 @@ fdes_t *addnode(fdes_t **head, const int fd)
 
 	if (*head != NULL)
 		newnode->next = *head;
-	
+
 	*head = newnode;
 	return (newnode);
 }

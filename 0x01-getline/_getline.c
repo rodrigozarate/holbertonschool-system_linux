@@ -25,7 +25,7 @@ char *_getline(const int fd)
 			while (buffer[buffersize] != '\n' && buffersize < *line)
 				buffersize++;
 			output = realloc(output, sizeof(*output)
-								* (outputsize + buffersize + 1));
+					* (outputsize + buffersize + 1));
 			for (i = 0; i < buffersize; i++)
 				output[outputsize + i] = buffer[i];
 			output[outputsize + buffersize] = '\0';

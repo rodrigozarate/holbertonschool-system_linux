@@ -2,6 +2,7 @@
 #define _ELF_READER_
 
 #include <elf.h>
+#include <stdbool.h>
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
@@ -19,8 +20,12 @@
 typedef struct initvars_s {
 	char *p_name;
 	char *f_name;
+	int f_size;
 	_Bool elf_type;
+	_Bool ELF_32bit;
+	_Bool big_endian;
 	FILE *f_stream;
+	Elf64_Ehdr f_header;
 } initvars_t;
 
 void initvars(initvars_t *state);

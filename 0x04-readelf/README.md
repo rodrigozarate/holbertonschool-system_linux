@@ -12,8 +12,8 @@
 ### Allowed Functions and System Calls
 
     Unless specified otherwise, you are allowed to use the C standard library
-    You’re not allowed to use system(3)
-    You’re not allowed to use exec*(2 and 3)
+    You're not allowed to use system(3)
+    You're not allowed to use exec*(2 and 3)
 
 ### Compilation
 

@@ -15,8 +15,8 @@ int openfile(initvars_t *state)
 		if (errno == ENOENT)
 			errorhandler("%s: No such file\n", NULL, state);
 		else
-			errorhandler("Could not locate '%s'. System error
-							message: %s\n", strerror(errno), state);
+			errorhandler("Could not locate '%s'. System error message: %s\n",
+							strerror(errno), state);
 		return (1);
 	}
 

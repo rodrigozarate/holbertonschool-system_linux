@@ -1,6 +1,10 @@
 #include "header.h"
 
-
+/**
+ * openfile - openfile you know
+ * @state: pointer
+ * Return: int
+ */
 int openfile(initvars_t *state)
 {
 	char magic4[(EI_NIDENT / 2)];

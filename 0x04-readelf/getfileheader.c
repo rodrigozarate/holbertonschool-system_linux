@@ -11,10 +11,10 @@ int getfileheader(initvars_t *state)
 		return (1);
 
 	if (state->f_header.e_ident[EI_DATA] == ELFDATA2MSB)
-			state->big_endian = true;
+		state->big_endian = true;
 
 	if (state->f_header.e_ident[EI_CLASS] != ELFCLASS64)
-			state->ELF_32bit = true;
+		state->ELF_32bit = true;
 
 	if (state->ELF_32bit)
 	{

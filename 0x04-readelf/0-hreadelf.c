@@ -1,5 +1,12 @@
 #include "header.h"
 
+
+/**
+ * main - main function
+ * @argc: counter
+ * @argv: vector
+ * Return: int
+ */
 int main(int argc, char **argv)
 {
 	initvars_t state;

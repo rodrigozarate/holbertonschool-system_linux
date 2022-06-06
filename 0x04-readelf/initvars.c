@@ -3,7 +3,7 @@
 /**
  * initvars - initialization
  * @state: pointer
- */ 
+ */
 void initvars(initvars_t *state)
 {
 	state->p_name = NULL;

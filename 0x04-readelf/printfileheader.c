@@ -8,7 +8,7 @@
 int printfileheader(initvars_t *state)
 {
 	int i;
-	
+
 	puts("ELF Header:");
 	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)

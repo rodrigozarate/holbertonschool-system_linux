@@ -8,6 +8,7 @@
 int printfileheader(initvars_t *state)
 {
 	int i;
+	
 	puts("ELF Header:");
 	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
@@ -21,6 +22,14 @@ int printfileheader(initvars_t *state)
 			state->f_header.e_ident[EI_VERSION],
 			state->f_header.e_ident[EI_VERSION] ==
 			EV_CURRENT ? " (current)" : "");
+	printf("  OS/ABI:                            %s\n",
+			getosabi(state->f_header.e_ident[EI_OSABI]));
+	printf("  ABI Version:                       %u\n",
+			state->f_header.e_ident[EI_ABIVERSION]);
+	printf("  Type:                              %s\n",
+			getelft(state->f_header.e_type));
+	printf("  Machine:                           %s\n",
+			getmname(state->f_header.e_machine));
 	printf("  Version:                           0x%x\n",
 			state->f_header.e_version);
 	printf("  Entry point address:               0x%lx\n",
@@ -33,6 +42,14 @@ int printfileheader(initvars_t *state)
 			state->f_header.e_flags);
 	printf("  Size of this header:               %u (bytes)\n",
 			state->f_header.e_ehsize);
+	printf("  Size of program headers:           %u (bytes)\n",
+			state->f_header.e_phentsize);
+	printf("  Number of program headers:         %u\n",
+			state->f_header.e_phnum);
+	printf("  Size of section headers:           %u (bytes)\n",
+			state->f_header.e_shnum);
+	printf("  Section header string table index: %u\n",
+			state->f_header.e_shstrndx);
 
 	return (0);
 }

@@ -34,5 +34,8 @@ void freewilli(initvars_t *state);
 int openfile(initvars_t *state);
 int getfileheader(initvars_t *state);
 int printfileheader(initvars_t *state);
+const char *getosabi(unsigned char osabi);
+const char *getelft(Elf64_Half e_type);
+const char *getmname(Elf64_Half e_machine);
 
 #endif /* _ELF_READER_ */

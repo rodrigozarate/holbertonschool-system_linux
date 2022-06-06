@@ -11,30 +11,28 @@ int openfile(initvars_t *state)
 		if (errno == ENOENT)
 			errorhandler("%s: No such file\n", NULL, state);
 		else
-			errorhandler("%s: System error\n", strerror(errno), state);
-		
+			errorhandler("Could not locate '%s'. System error
+							message: %s\n", strerror(errno), state);
 		return (1);
 	}
 
 	if (!S_ISREG(statbuf.st_mode))
 	{
-		errorhandler("Not regular file", NULL, state);
-
+		errorhandler("'%s' is not an ordinary file\n", NULL, state);
 		return (1);
 	}
 	state->f_stream = fopen(state->f_name, "rb");
 	if (state->f_stream == NULL)
 	{
-		errorhandler("Salio mal\n", NULL, state);
+		errorhandler("Input file '%s' is not readable.\n", NULL, state);
 		return (1);
 	}
 	if (fread(magic4, (EI_NIDENT / 2), 1, state->f_stream) != 1)
 	{
-		errorhandler("No hay magia\n", NULL, state);
+		errorhandler("%s: Failed to read file's magic number\n", NULL, state);
 		return (1);
 	}
 	state->f_size = statbuf.st_size;
 	rewind(state->f_stream);
-
 	return (0);
 }

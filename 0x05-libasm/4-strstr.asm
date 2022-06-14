@@ -33,6 +33,7 @@ base_loop:
 	movzx eax, BYTE [rax]
 	cmp dl, al
 	je walk
+	jmp test_al
 walk:
 	add QWORD [rbp - 16], 1
 loop_2:

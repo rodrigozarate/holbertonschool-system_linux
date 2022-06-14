@@ -3,7 +3,7 @@ BITS 64
 global asm_strstr
 asm_strstr:
 	push rbp
-	mov rpb, rsp
+	mov rbp, rsp
 	mov QWORD [rbp - 40], rdi
 	mov QWORD [rbp - 48], rsi
 	mov rax, QWORD [rbp - 40]

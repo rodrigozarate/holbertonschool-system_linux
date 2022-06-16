@@ -37,7 +37,7 @@ true_t_1:
 	jg false_t_2
 	mov rax, QWORD [rbp - 32]
 	movzx eax, BYTE [rax]
-	add eax, 32	
+	add eax, 32
 	jmp dif_search
 false_t_2:
 	mov rax, QWORD [rbp - 32]

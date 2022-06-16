@@ -14,7 +14,7 @@ cmp_loop:
 	mov QWORD [rbp - 8], rax
 	jmp tmp_loop
 ini_t:
-	add QWORD [rbp - 9], 1
+	add QWORD [rbp - 8], 1
 tmp_loop:
 	mov rax, QWORD [rbp - 8]
 	movzx eax, BYTE [rax]

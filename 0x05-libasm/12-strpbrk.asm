@@ -30,7 +30,7 @@ cmp_tmp:
 	mov rax, QWORD [rbp - 8]
 	movzx eax, BYTE [rax]
 	test al, al
-	jne plus_var
+	je plus_var
 	jmp cmp_loop_aftr
 plus_var:
 	add QWORD [rbp - 24], 1

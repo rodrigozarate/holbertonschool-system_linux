@@ -1,6 +1,6 @@
 BITS 64
 
-global
+global asm_strspn
 
 asm_strspn:
 	push rbp

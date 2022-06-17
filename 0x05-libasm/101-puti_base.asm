@@ -9,7 +9,7 @@ asm_puti_base:
 	mov rbp, rsp
 	sub rsp, 48
 	mov DWORD [rbp - 36], edi
-	mov DWORD [rbp - 48], rsi
+	mov QWORD [rbp - 48], rsi
 	mov DWORD [rbp - 4], 1
 	mov QWORD [rbp - 16], 0
 	mov QWORD [rbp - 24], 1

@@ -71,7 +71,7 @@ prnt:
 prnt_test:
 	mov rax, QWORD [rbp - 16]
 	cmp rax, QWORD [rbp - 24]
-	jb prnt	
+	jb prnt
 	mov rax, QWORD [rbp - 24]
 return:
 	leave

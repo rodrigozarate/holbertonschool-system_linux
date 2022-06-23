@@ -2,7 +2,7 @@
 #include <signal.h>
 #include "signals.h"
 
-/** 
+/**
 * s_handler - Prints Gotcha
 * @signalnum: signal code
 */

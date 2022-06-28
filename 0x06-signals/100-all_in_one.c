@@ -1,6 +1,5 @@
 #include <signal.h>
 #include <stddef.h>
-#include <signal.h>
 #include "signals.h"
 
 /**
@@ -30,6 +29,6 @@ void all_in_one(void)
 	for (sig = 1; sig < SIGRTMIN; sig++)
 	{
 		if (sig != SIGKILL && sig != SIGSTOP)
-			sigaction(sig, &sa, NULL);
+			sigaction(sig, &sigact, NULL);
 	}
 }

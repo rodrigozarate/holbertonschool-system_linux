@@ -2,12 +2,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <signal.h>
 #include "signals.h"
 
 /**
 * signal_handler - self explanatory
 * @signum: code
-* Return: 0 , 1
 */
 void signal_handler(int signum)
 {
@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 	struct sigaction sa;
 
 	(void)argc;
+	(void)argv;
 
 	sa.sa_handler = signal_handler;
 	if (sigaction(SIGINT, &sa, NULL) != 0)

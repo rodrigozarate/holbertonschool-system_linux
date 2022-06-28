@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <stdlib.h>
+#include <signal.h>
 #include "signals.h"
 
 /**

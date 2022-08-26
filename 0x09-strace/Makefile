@@ -18,3 +18,9 @@ strace_1: syscalls.h 1_strace.o
 
 strace_2: syscalls.h 2_strace.o
 	$(CC) $(CFLAGS) syscalls.h 2_strace.o -o strace_2
+
+3_strace.o: 3_strace.c
+	$(CC) -c $(CFLAGS) 3_strace.c
+
+strace_3: syscalls.h 3_strace.o
+	$(CC) $(CFLAGS) syscalls.h 3_strace.o -o strace_3

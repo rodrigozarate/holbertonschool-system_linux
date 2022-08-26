@@ -26,7 +26,7 @@ int tracerLoop(pid_t child_pid)
 			return (1);
 		if (WIFEXITED(status))
 		{
-			putchar('?\n');
+			printf(" = ?\n");
 			break;
 		}
 

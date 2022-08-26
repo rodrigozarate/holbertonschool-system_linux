@@ -25,7 +25,10 @@ int tracerLoop(pid_t child_pid)
 		if (wait(&status) == -1)
 			return (1);
 		if (WIFEXITED(status))
+		{
+			putchar('\n');
 			break;
+		}
 
 		if (!syscall_return || first_syscall)
 		{
@@ -33,10 +36,13 @@ int tracerLoop(pid_t child_pid)
 				   NULL, &regs) == -1)
 				return (1);
 
-			printf("%lu\n", (unsigned long)regs.orig_rax);
+			printf("%s", syscalls_64[regs.orig_rax].name);
 			fflush(stdout);
 			first_syscall = 0;
 		}
+
+		if (syscall_return)
+			putchar('\n');
 
 		if (ptrace(PTRACE_SYSCALL, child_pid, NULL, NULL) == -1)
 			return (1);

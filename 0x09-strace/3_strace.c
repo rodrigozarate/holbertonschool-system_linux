@@ -83,14 +83,14 @@ int tracerLoop(pid_t child_pid)
 
 		if (!syscall_return || first_syscall)
 		{
-			printf("%s", syscalls_64[regs.orig_rax].name);
+			printf("%s(", syscalls_64[regs.orig_rax].name);
 			printParams(&regs);
 			fflush(stdout);
 			first_syscall = 0;
 		}
 
 		if (syscall_return)
-			printf(" = %#lx\n", (unsigned long)regs.rax);
+			printf(") = %#lx\n", (unsigned long)regs.rax);
 
 		if (ptrace(PTRACE_SYSCALL, child_pid, NULL, NULL) == -1)
 			return (1);

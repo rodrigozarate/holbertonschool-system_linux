@@ -34,7 +34,7 @@ int serverZero(void)
 	int socketN;
 	struct sockaddr_in socketA;
 
-	socketN = socket(PF_INET, SOCK_STREAM. 0);
+	socketN = socket(PF_INET, SOCK_STREAM, 0);
 	if (socketN == -1)
 	{
 		perror("serverZero: id -1");
@@ -45,7 +45,7 @@ int serverZero(void)
 	socketA.sin_addr.s_addr = htonl(INADDR_ANY);
 
 	if (bind(socketN, (struct sockaddr *)&socketA,
-				sizeof(struct socaddr_in)) == -1)
+				sizeof(struct sockaddr_in)) == -1)
 		errorX(socketN, "serverZero: bind failed");
 
 	if (listen(socketN, MAX_PENDING) == -1)

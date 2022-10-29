@@ -21,15 +21,15 @@ void errorX(int socketN, char *message)
 
 	if (message)
 		perror(message);
-	
+
 	exit(EXIT_FAILURE);
 }
 
 /**
  * serverZero - socket simple demo
- * Return: int 
+ * Return: int
 */
-int serverZero()
+int serverZero(void)
 {
 	int socketN;
 	struct sockaddr_in socketA;
@@ -46,8 +46,8 @@ int serverZero()
 
 	if (bind(socketN, (struct sockaddr *)&socketA,
 				sizeof(struct socaddr_in)) == -1)
-				errorX(socketN, "serverZero: bind failed");
-	
+		errorX(socketN, "serverZero: bind failed");
+
 	if (listen(socketN, MAX_PENDING) == -1)
 		errorX(socketN, "serverZero: listen");
 
@@ -55,17 +55,17 @@ int serverZero()
 			__builtin_bswap16((uint16_t)(socketA.sin_port)));
 
 	/* infinite */
-	for(;;)
+	for (;;)
 	{}
 
-	return (EXIT_SUCCESS)
+	return (EXIT_SUCCESS);
 }
 
 /**
  * main - entry point
  * Return: int
 */
-int main()
+int main(void)
 {
 	return (serverZero());
 }

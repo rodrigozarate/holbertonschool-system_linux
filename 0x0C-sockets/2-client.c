@@ -84,12 +84,12 @@ int ipVerify(struct addrinfo *hostAddI,
 }
 
 /**
- * basicClient - basic client
+ * clientHostPort - basic client
  * @hostname: hostname
  * @port: port
  * Return: Exit ok or not
 */
-int basicClient(const char *hostname, const char *port)
+int clientHostPort(const char *hostname, const char *port)
 {
 	int clientID;
 	struct addrinfo *hostAddI;
@@ -132,5 +132,5 @@ int main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 
-	return  (clientHostPort(argv[1], argv[2]));
+	return (clientHostPort(argv[1], argv[2]));
 }
